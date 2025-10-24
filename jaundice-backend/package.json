@@ -1,0 +1,50 @@
+{
+  "name": "Jaundice Detection Backend",
+  "version": "1.0.0",
+  "description": "Production-grade backend with ML prediction model for jaundice detection",
+  "author": "Your Team",
+  "main": "app.py",
+  "scripts": {
+    "train": "python train_model.py",
+    "start": "python app.py",
+    "setup": "python setup.py",
+    "cli": "python cli.py",
+    "info": "python cli.py info",
+    "stats": "python cli.py stats",
+    "test": "python cli.py test"
+  },
+  "dependencies": [
+    "Flask==3.0.0",
+    "Flask-CORS==4.0.0",
+    "tensorflow==2.14.0",
+    "keras==2.14.0",
+    "numpy==1.24.3",
+    "pillow==10.1.0",
+    "opencv-python==4.8.1.78",
+    "scikit-learn==1.3.2"
+  ],
+  "model": {
+    "architecture": "MobileNetV2 with custom top layers",
+    "input_shape": [
+      224,
+      224,
+      3
+    ],
+    "classes": [
+      "normal",
+      "jaundice"
+    ],
+    "task": "Binary Classification",
+    "framework": "TensorFlow/Keras"
+  },
+  "api": {
+    "base_url": "http://localhost:5000",
+    "endpoints": [
+      "GET /api/health",
+      "GET /api/model/info",
+      "GET /api/stats",
+      "POST /api/predict",
+      "POST /api/batch-predict"
+    ]
+  }
+}
