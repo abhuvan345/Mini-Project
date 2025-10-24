@@ -11,7 +11,6 @@ from datetime import datetime
 from functools import lru_cache
 
 import numpy as np
-import cv2
 from PIL import Image
 import io
 
